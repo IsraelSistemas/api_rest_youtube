@@ -1,0 +1,38 @@
+@url = http://localhost:4000
+
+# @name test
+GET {{url}}/
+Content-Type: application/json
+
+###
+GET {{url}}/getAll
+Content-Type: application/json
+
+###
+GET {{url}}/getById/4
+Content-Type: application/json
+
+###
+POST {{url}}/addItem
+Content-Type: application/json
+
+{
+    "id": 8,
+    "age": 22,
+    "name": "test",
+    "email": "test@emergent.com",
+    "phone": "45454"
+}
+
+###
+PUT {{url}}/updateItem/4
+Content-Type: application/json
+
+{
+    "age": 19,
+    "name": "israel"
+}
+
+###
+DELETE {{url}}/deleteItem/7
+Content-Type: application/json
