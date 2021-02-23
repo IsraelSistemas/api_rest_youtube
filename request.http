@@ -4,6 +4,10 @@
 GET {{url}}/
 Content-Type: application/json
 
+{
+    "acceso": false
+}
+
 ###
 GET {{url}}/getAll
 Content-Type: application/json

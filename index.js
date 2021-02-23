@@ -13,7 +13,26 @@ app.use(bodyParser.json());
     DELETE
 */
 
-app.get('/', (req, res) => {
+const middleware = (req, res, next) => {
+    console.log('AQUI COMIENZA UN MIDDLEWARE');
+
+    if (!req.body.acceso) {
+        return res.json({
+            error: true,
+            msg: "acceso denegado"
+        });
+    }
+
+    next();
+};
+
+const middleware2 = (req, res, next) => {
+    console.log('SEGUNDO MIDDLEWARE!!!!');
+
+    next();
+};
+
+app.get('/', middleware, middleware2, (req, res) => {
     return res.send('El API se esta ejecutando!!!');    
 });
 
